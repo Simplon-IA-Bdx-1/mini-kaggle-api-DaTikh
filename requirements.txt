@@ -1,5 +1,5 @@
 curl
 Flask
 sklearn
-np
-pandas
+numpy
+pandas==1.0.5
