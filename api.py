@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route('/submit', method=['POST'])
 
 def get_auc():
-    y = np.array(pd.read_csv('test2.csv')['SeriousDlqin2yrs'])
-    pred = np.array(pd.read_csv(request.files)['pred'])
+    y = np.array(pd.read_csv('test2.csv', index_col=0)['SeriousDlqin2yrs'])
+    pred = np.array(pd.read_csv(request.files)['Pred'])
     result = metrics.auc(y, pred)
     return {
         "AUC": result
