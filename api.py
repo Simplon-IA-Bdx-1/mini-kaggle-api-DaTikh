@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/submit', methods=['POST'])
 
-def post():
+def submit():
     f = request.files
     y = np.array(pd.read_csv('test2.csv')['SeriousDlqin2yrs'])
     pred = np.array(pd.read_csv(f['file'].stream))
