@@ -10,8 +10,8 @@ app = Flask(__name__)
 def post():
     f = request.files
     y = np.array(pd.read_csv('test2.csv')['SeriousDlqin2yrs'])
-    pred = np.array(pd.read_csv(f['file'].stream)['Pred'])
-    result = metrics.auc(y, pred)
+    pred = np.array(pd.read_csv(f['file'].stream))
+    result = metrics.roc_auc_score(y, pred)
     return {
         "AUC": result
     }
