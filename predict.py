@@ -10,10 +10,10 @@ y_train = train[label]
 X_train = train.drop(columns=[label])
 X_test = test.drop(columns=[label]) 
 
-clf = svm.SVC().fit(X_train, y_train)
+clf = svm.SVC(probability=True).fit(X_train, y_train)
 
 def main():
-    df = pd.DataFrame(clf.predict(X_test), columns=['Pred'])
+    df = pd.DataFrame(clf.predict_proba(X_test)[1], columns=['Pred'])
     df.to_csv('test2-predictions.csv')
 
 if __name__ == "__main__":
