@@ -1,0 +1,5 @@
+curl
+Flask
+sklearn
+numpy
+pandas==1.0.5
